@@ -1,0 +1,38 @@
+{
+  "background_u_index": 0,
+  "background_v_index": 1,
+  "category": "resonantgeodes:geodes",
+  "description": "book.resonantgeodes.book_of_geodes.geodes.drill.description",
+  "hide_while_locked": false,
+  "icon": {
+    "item": "resonantgeodes:geode_drill_block"
+  },
+  "name": "book.resonantgeodes.book_of_geodes.geodes.drill.name",
+  "pages": [
+    {
+      "type": "modonomicon:text",
+      "anchor": "",
+      "condition": {
+        "type": "modonomicon:none"
+      },
+      "show_title_separator": true,
+      "text": "book.resonantgeodes.book_of_geodes.geodes.drill.drill_info.text",
+      "title": "book.resonantgeodes.book_of_geodes.geodes.drill.drill_info.title",
+      "use_markdown_in_title": false
+    },
+    {
+      "type": "modonomicon:text",
+      "anchor": "",
+      "condition": {
+        "type": "modonomicon:none"
+      },
+      "show_title_separator": true,
+      "text": "book.resonantgeodes.book_of_geodes.geodes.drill.drill_info_2.text",
+      "title": "",
+      "use_markdown_in_title": false
+    }
+  ],
+  "show_when_any_parent_unlocked": false,
+  "x": 5,
+  "y": 0
+}

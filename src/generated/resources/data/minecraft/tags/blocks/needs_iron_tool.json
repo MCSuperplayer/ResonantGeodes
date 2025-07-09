@@ -1,0 +1,12 @@
+{
+  "values": [
+    "resonantgeodes:geode_core",
+    "resonantgeodes:pure_crystal_block",
+    "resonantgeodes:impure_crystal_block",
+    "resonantgeodes:crystal_cluster",
+    "resonantgeodes:crystal_bud_large",
+    "resonantgeodes:crystal_bud_medium",
+    "resonantgeodes:crystal_bud_small",
+    "resonantgeodes:geode_drill_block"
+  ]
+}

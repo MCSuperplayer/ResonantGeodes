@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "resonantgeodes:block/drill_machine_front",
+    "side": "resonantgeodes:block/drill_machine_side",
+    "top": "resonantgeodes:block/drill_machine_side"
+  }
+}

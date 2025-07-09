@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "resonantgeodes:block/drill_machine_block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "resonantgeodes:block/drill_machine_block"
+    },
+    "facing=south": {
+      "model": "resonantgeodes:block/drill_machine_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "resonantgeodes:block/drill_machine_block",
+      "y": 270
+    }
+  }
+}
