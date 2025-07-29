@@ -167,8 +167,8 @@ public class ResonantGeodesBookProvider extends BookProvider {
 		this.lang
 				.add(this.context().pageText(),
 				"""
-						Geodes, being hidden underground, are not that easy to find.
-								Once you have found one, though, you can use the Crystals found there to make a tool that can detect their Aura distortions.
+				Geodes, being hidden underground, are not that easy to find.
+				Once you have found one, though, you can use the Crystals found there to make a tool that can detect their Aura distortions.
                 """);
 
 		return BookEntryModel
@@ -195,8 +195,8 @@ public class ResonantGeodesBookProvider extends BookProvider {
 		this.lang
 				.add(this.context().pageText(),
 				"""
-						Hidden deep in the ground exist mineralic formations, commonly referred to as "Geodes".
-								For a long time, not much was known about them, and people simply saw every Geode's minerals as "Amethyst".
+				Hidden deep in the ground exist mineralic formations, commonly referred to as "Geodes".
+				For a long time, not much was known about them, and people simply saw every Geode's minerals as "Amethyst".
                 """);
 
 		return BookEntryModel
@@ -297,7 +297,8 @@ public class ResonantGeodesBookProvider extends BookProvider {
 		var structure = BookMultiblockPageModel
 				.builder()
 				.withVisualizeButton(true)
-				.withMultiblockId("drill_multiblock")
+				.withMultiblockId(this.modLoc("geode_drill"))
+				.withMultiblockName("multiblocks.resonantgeodes.geode_drill_multiblock")
 				.build();
 		return BookEntryModel
 				.create(this.modLoc(this.context().categoryId() + "/" + this.context().entryId()),this.context().entryName())
@@ -305,7 +306,7 @@ public class ResonantGeodesBookProvider extends BookProvider {
 				.withIcon(Registry.DRILL_MACHINE_BLOCK.get())
 				.withLocation(entryMap.get(c))
 				.withEntryBackground(0, 1)
-				.withPages(info, info2);
+				.withPages(info, info2, structure);
 	}
 }
 

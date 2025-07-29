@@ -23,6 +23,7 @@ public class DataGen {
 		gen.addProvider(event.includeClient(), new ModItemModelProvider(output, helper));
 		gen.addProvider(event.includeServer(), new ModLootTableProvider(output).create(output));
 		gen.addProvider(event.includeServer(), new ModBlockTagsProvider(output, event.getLookupProvider(), helper));
+		gen.addProvider(event.includeServer(), new StructureProvider(gen));
 		var enUSProvider = new ENUSProvider(output);
 		gen.addProvider(event.includeClient(), new ResonantGeodesBookProvider(output, ResonantGeodes.MODID, enUSProvider));
 		gen.addProvider(event.includeClient(), enUSProvider);
