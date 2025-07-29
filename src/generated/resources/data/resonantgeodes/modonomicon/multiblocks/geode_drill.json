@@ -1,0 +1,30 @@
+{
+  "type": "modonomicon:dense",
+  "mapping": {
+    "0": {
+      "type": "modonomicon:block",
+      "block": "resonantgeodes:geode_core"
+    },
+    "B": {
+      "type": "modonomicon:block",
+      "block": "resonantgeodes:crystal_cluster"
+    },
+    "D": {
+      "type": "modonomicon:block",
+      "block": "resonantgeodes:geode_drill_block"
+    },
+    "H": {
+      "type": "modonomicon:block",
+      "block": "resonantgeodes:pure_crystal_block"
+    },
+    "T": {
+      "type": "modonomicon:block",
+      "block": "minecraft:tinted_glass"
+    }
+  },
+  "pattern": [
+    [
+      "DHT0THB"
+    ]
+  ]
+}
