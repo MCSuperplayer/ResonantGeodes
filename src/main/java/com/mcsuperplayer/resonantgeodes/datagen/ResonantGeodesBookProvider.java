@@ -299,7 +299,11 @@ public class ResonantGeodesBookProvider extends BookProvider {
 				.withVisualizeButton(true)
 				.withMultiblockId(this.modLoc("geode_drill"))
 				.withMultiblockName("multiblocks.resonantgeodes.geode_drill_multiblock")
+				.withText(this.context().pageText())
 				.build();
+		this.lang().add(this.context().pageText(),
+				"To line up the preview with the Core, place a block underneath it and place the preview against it.");
+		this.lang().add("multiblocks.resonantgeodes.geode_drill_multiblock", "Geode Drill");
 		return BookEntryModel
 				.create(this.modLoc(this.context().categoryId() + "/" + this.context().entryId()),this.context().entryName())
 				.withDescription(this.context().entryDescription())

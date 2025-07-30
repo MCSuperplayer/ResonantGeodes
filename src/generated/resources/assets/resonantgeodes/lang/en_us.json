@@ -26,6 +26,7 @@
   "book.resonantgeodes.book_of_geodes.geodes.drill.drill_info.text": "This Structure is exactly what you were looking for.\nIt is powered by the Crystal Aura, and uses that energy to carefully extract a steady supply of Crystals from a Geode Core.\nThis is much better than just hoping that the Geode Core grows a Crystal Bud on one of its sides, and waiting for it to grow to full size.\n",
   "book.resonantgeodes.book_of_geodes.geodes.drill.drill_info.title": "Crystal Drill",
   "book.resonantgeodes.book_of_geodes.geodes.drill.drill_info_2.text": "And it also means that the Geode Core is no longer bound by this realm's presence requirements.\n(The activeness requirement still remains, however, so you will have to figure out something about that.)\n",
+  "book.resonantgeodes.book_of_geodes.geodes.drill.drill_structure.text": "To line up the preview with the Core, place a block underneath it and place the preview against it.",
   "book.resonantgeodes.book_of_geodes.geodes.drill.name": "Crystal Drill",
   "book.resonantgeodes.book_of_geodes.geodes.energizer.description": "The Machine to power the World",
   "book.resonantgeodes.book_of_geodes.geodes.energizer.energizer_info.text": "This Structure is quite an interesting one.\nThere is a form of magical \"Aura\" of some kind.\nThis magical setup is able to burn any kind of Geode-related Crystals (including mundane Amethyst),\nand release their crystalline essence into this Aura.\nYou have a feeling that this charge might be useful to you.\n",
@@ -41,5 +42,6 @@
   "item.resonantgeodes.book_of_geodes": "Book of Geodes",
   "item.resonantgeodes.crystal_fragment": "Crystal Fragment",
   "item.resonantgeodes.geode_resonator": "Geode Resonator",
-  "itemGroup.resonantgeodes": "Resonant Geodes"
+  "itemGroup.resonantgeodes": "Resonant Geodes",
+  "multiblocks.resonantgeodes.geode_drill_multiblock": "Geode Drill"
 }

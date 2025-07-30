@@ -36,7 +36,15 @@ public class StructureProvider implements DataProvider {
 
 	private void start() {
 		this.addStructure("geode_drill", this.createPattern(
-				"DHT0THB"
+				List.of(
+						List.of("   ", "   ", "   ", " B ", "   ", "   ", "   "),
+						List.of("   ", "   ", " H ", " D ", " H ", "   ", "   "),
+						List.of("   ", " H ", "HHH", "HHH", "HHH", " H ", "   "),
+						List.of(" H ", "HHH", "TTT", "THT", "TTT", "HHH", " H "),
+						List.of(" H ", "HHH", "THT", "T0T", "THT", "HHH", " H "),
+						List.of(" H ", "HHH", "TTT", "TTT", "TTT", "HHH", " H "),
+						List.of("   ", " H ", "HHH", "HHH", "HHH", " H ", "   "),
+						List.of("   ", "   ", " H ", " H ", " H ", "   ", "   "))
 				),new MappingBuilder()
 					.geodeCore()
 					.drillController()
@@ -46,28 +54,35 @@ public class StructureProvider implements DataProvider {
 					.build());
 	}
 
-	private List<String> createPattern(String... rows) {
-		List<String> pattern = new ArrayList<>();
-		for (String row : rows) {
-			pattern.add(row.replace(" ", "_"));
+	private List<List<String>> createPattern(List<List<String>> layers) {
+		List<List<String>> fullPattern = new ArrayList<>();
+		for (List<String> layer : layers) {
+			List<String> layerPattern = new ArrayList<>();
+			for (String row : layer) {
+				layerPattern.add(row.replace(" ", "_"));
+			}
+			fullPattern.add(layerPattern);
 		}
-		return pattern;
+		return fullPattern;
 	}
 
-	private void addStructure(String name, List<String> pattern, Map<Character, JsonElement> mappings) {
+	private void addStructure(String name, List<List<String>> pattern, Map<Character, JsonElement> mappings) {
 		this.addStructure(ResourceLocation.parse(ResonantGeodes.MODID + ":" + name), pattern, mappings);
 	}
 
-	private void addStructure(ResourceLocation rl, List<String> pattern, Map<Character, JsonElement> mappings) {
+	private void addStructure(ResourceLocation rl, List<List<String>> pattern, Map<Character, JsonElement> mappings) {
 		JsonObject json = new JsonObject();
 
 		json.addProperty("type", "modonomicon:dense");
 
 		JsonArray outerPattern = new JsonArray();
-		JsonArray innerPattern = new JsonArray();
-		for (String row : pattern)
-			innerPattern.add(row);
-		outerPattern.add(innerPattern);
+		for (List<String> layer : pattern) {
+			JsonArray innerPattern = new JsonArray();
+			for (String row : layer) {
+				innerPattern.add(row);
+			}
+			outerPattern.add(innerPattern);
+		}
 
 		json.add("pattern", outerPattern);
 
@@ -124,6 +139,7 @@ public class StructureProvider implements DataProvider {
 			return this.element(c, json);
 		}
 
+		@SuppressWarnings("unused")
 		private MappingBuilder blockDisplay(char c, Supplier<? extends Block> b, Supplier<? extends Block> display) {
 			JsonObject json = new JsonObject();
 			json.addProperty("type", "modonomicon:block");
@@ -132,6 +148,7 @@ public class StructureProvider implements DataProvider {
 			return this.element(c, json);
 		}
 
+		@SuppressWarnings("unused")
 		private MappingBuilder display(char c, Supplier<? extends Block> display) {
 			JsonObject json = new JsonObject();
 			json.addProperty("type", "modonomicon:display");
@@ -139,6 +156,7 @@ public class StructureProvider implements DataProvider {
 			return this.element(c, json);
 		}
 
+		@SuppressWarnings("unused")
 		private MappingBuilder tag(char c, TagKey<Block> tag) {
 			JsonObject json = new JsonObject();
 			json.addProperty("type", "modonomicon:tag");
@@ -152,10 +170,6 @@ public class StructureProvider implements DataProvider {
 
 		private MappingBuilder crystalBlockHigh() {
 			return this.block('H', Registry.GEODE_CRYSTAL_BLOCK_HIGH);
-		}
-
-		private MappingBuilder crystalBlockLow() {
-			return this.block('L', Registry.GEODE_CRYSTAL_BLOCK_LOW);
 		}
 
 		private MappingBuilder crystalCluster() {
