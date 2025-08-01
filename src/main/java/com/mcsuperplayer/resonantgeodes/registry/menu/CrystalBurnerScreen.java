@@ -9,10 +9,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
-public class DrillControllerScreen extends AbstractContainerScreen<DrillControllerMenu> {
+public class CrystalBurnerScreen extends AbstractContainerScreen<CrystalBurnerMenu> {
 	static final ResourceLocation GUI_BG = ResourceLocation.fromNamespaceAndPath(ResonantGeodes.MODID, "textures/gui/drill_controller_screen.png");
 
-	public DrillControllerScreen(DrillControllerMenu menu, Inventory playerInv, Component title) {
+	public CrystalBurnerScreen(CrystalBurnerMenu menu, Inventory playerInv, Component title) {
 		super(menu, playerInv, title);
 		this.imageWidth = 176;
 		this.imageHeight = 166;

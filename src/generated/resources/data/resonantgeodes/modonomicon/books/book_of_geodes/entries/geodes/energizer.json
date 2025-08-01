@@ -16,9 +16,20 @@
         "type": "modonomicon:none"
       },
       "show_title_separator": true,
-      "text": "book.resonantgeodes.book_of_geodes.geodes.energizer.energizer_info.text",
-      "title": "book.resonantgeodes.book_of_geodes.geodes.energizer.energizer_info.title",
+      "text": "book.resonantgeodes.book_of_geodes.geodes.energizer.diffuser_info.text",
+      "title": "book.resonantgeodes.book_of_geodes.geodes.energizer.diffuser_info.title",
       "use_markdown_in_title": false
+    },
+    {
+      "type": "modonomicon:multiblock",
+      "anchor": "",
+      "condition": {
+        "type": "modonomicon:none"
+      },
+      "multiblock_id": "resonantgeodes:crystal_burner",
+      "multiblock_name": "multiblocks.resonantgeodes.resonance_diffuser_multiblock",
+      "show_visualize_button": true,
+      "text": ""
     }
   ],
   "show_when_any_parent_unlocked": false,

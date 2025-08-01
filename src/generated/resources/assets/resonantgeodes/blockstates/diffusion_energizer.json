@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "resonantgeodes:block/resonance_diffuser",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "resonantgeodes:block/resonance_diffuser"
+    },
+    "facing=south": {
+      "model": "resonantgeodes:block/resonance_diffuser",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "resonantgeodes:block/resonance_diffuser",
+      "y": 270
+    }
+  }
+}

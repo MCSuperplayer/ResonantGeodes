@@ -241,13 +241,13 @@ public class ResonantGeodesBookProvider extends BookProvider {
 		this.lang().add(this.context().entryName(), "Crystallic Diffusion Energizer");
 		this.lang().add(this.context().entryDescription(), "The Machine to power the World");
 
-		this.context().page("energizer_info");
+		this.context().page("diffuser_info");
 		var info = BookTextPageModel
 				.builder()
 				.withTitle(this.context().pageTitle())
 				.withText(this.context().pageText())
 				.build();
-		this.lang().add(this.context().pageTitle(), "Crystallic Diffusion Energizer");
+		this.lang().add(this.context().pageTitle(), "Crystallic Resonance Diffuser");
 		this.lang.add(this.context().pageText(),
 						"""
 								This Structure is quite an interesting one.
@@ -257,13 +257,21 @@ public class ResonantGeodesBookProvider extends BookProvider {
 								You have a feeling that this charge might be useful to you.
 								""");
 
+		this.context().page("diffuser_multiblock");
+		var mb = BookMultiblockPageModel
+				.builder()
+				.withVisualizeButton(true)
+				.withMultiblockId(this.modLoc("crystal_burner"))
+				.withMultiblockName("multiblocks.resonantgeodes.resonance_diffuser_multiblock")
+				.build();
+
 		return BookEntryModel
 				.create(this.modLoc(this.context().categoryId() + "/" + this.context().entryId()),this.context().entryName())
 				.withDescription(this.context().entryDescription())
 				.withIcon(Registry.CRYSTAL_CLUSTER.get())
 				.withLocation(entryMap.get(c))
 				.withEntryBackground(0, 1)
-				.withPages(info);
+				.withPages(info, mb);
 	}
 	
 	private BookEntryModel makeDrillEntry(CategoryEntryMap entryMap, char c) {

@@ -1,7 +1,7 @@
 package com.mcsuperplayer.resonantgeodes.registry.block;
 
 import com.mcsuperplayer.resonantgeodes.registry.Registry;
-import com.mcsuperplayer.resonantgeodes.registry.entity.DrillControllerBlockEntity;
+import com.mcsuperplayer.resonantgeodes.registry.entity.CrystalBurnerBlockEntity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -12,7 +12,6 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
-import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -23,11 +22,16 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraftforge.network.NetworkHooks;
 
-public class DrillMachineBlock extends HorizontalDirectionalBlock implements EntityBlock {
+public class CrystalBurnerBlock extends Block implements EntityBlock {
 	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-	public DrillMachineBlock(Properties properties) {
-		super(properties);
+	public CrystalBurnerBlock(Properties prop) {
+		super(prop);
+	}
+
+	@Override
+	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+		return new CrystalBurnerBlockEntity(pos, state);
 	}
 
 	@Override
@@ -41,25 +45,23 @@ public class DrillMachineBlock extends HorizontalDirectionalBlock implements Ent
 	}
 
 	@Override
-	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand,
+			BlockHitResult result) {
 		if (!level.isClientSide) {
 			BlockEntity be = level.getBlockEntity(pos);
-			if (be instanceof DrillControllerBlockEntity drillBE) {
-				NetworkHooks.openScreen((ServerPlayer) player, drillBE, pos);
+			if (be instanceof CrystalBurnerBlockEntity burnerBE) {
+				NetworkHooks.openScreen((ServerPlayer) player, burnerBE, pos);
 			}
 		}
 		return InteractionResult.SUCCESS;
 	}
 
 	@Override
-	public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-		return new DrillControllerBlockEntity(pos, state);
+	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state,
+			BlockEntityType<T> type) {
+		if (level.isClientSide || type != Registry.CRYSTAL_BURNER_BLOCK_ENTITY.get())
+			return null;
+		return (lvl, pos, st, be) -> ((CrystalBurnerBlockEntity) be).tick();
 	}
 
-	@Override
-	public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-		if (level.isClientSide || type != Registry.DRILL_CONTROLLER_BLOCK_ENTITY.get())
-			return null;
-		return (lvl, pos, st, be) -> ((DrillControllerBlockEntity) be).tick();
-	}
 }

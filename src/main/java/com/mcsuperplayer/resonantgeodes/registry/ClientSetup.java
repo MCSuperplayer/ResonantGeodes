@@ -1,6 +1,7 @@
 package com.mcsuperplayer.resonantgeodes.registry;
 
 import com.mcsuperplayer.resonantgeodes.ResonantGeodes;
+import com.mcsuperplayer.resonantgeodes.registry.menu.CrystalBurnerScreen;
 import com.mcsuperplayer.resonantgeodes.registry.menu.DrillControllerScreen;
 
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -16,5 +17,6 @@ public class ClientSetup {
 	@SubscribeEvent
 	public static void onClientSetup(FMLClientSetupEvent event) {
 		MenuScreens.register(Registry.DRILL_CONTROLLER_MENU.get(), DrillControllerScreen::new);
+		MenuScreens.register(Registry.CRYSTAL_BURNER_MENU.get(), CrystalBurnerScreen::new);
 	}
 }

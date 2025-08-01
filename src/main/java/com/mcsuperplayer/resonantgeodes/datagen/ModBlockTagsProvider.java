@@ -33,7 +33,9 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 				Registry.CRYSTAL_BUD_LARGE.get(),
 				Registry.CRYSTAL_BUD_MEDIUM.get(),
 				Registry.CRYSTAL_BUD_SMALL.get(),
-				Registry.DRILL_MACHINE_BLOCK.get());
+				Registry.DRILL_MACHINE_BLOCK.get(),
+				Registry.CRYSTAL_BURNER_MACHINE_BLOCK.get(),
+				Registry.MACHINE_ITEM_INPUT.get());
 
 		tag(BlockTags.NEEDS_IRON_TOOL).add(
 				Registry.GEODE_CORE.get(), 
@@ -43,7 +45,9 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
 				Registry.CRYSTAL_BUD_LARGE.get(),
 				Registry.CRYSTAL_BUD_MEDIUM.get(),
 				Registry.CRYSTAL_BUD_SMALL.get(),
-				Registry.DRILL_MACHINE_BLOCK.get());
+				Registry.DRILL_MACHINE_BLOCK.get(),
+				Registry.CRYSTAL_BURNER_MACHINE_BLOCK.get(),
+				Registry.MACHINE_ITEM_INPUT.get());
 
 		tag(MATERIAL_BLOCKS).add(
 				Registry.GEODE_CORE.get(),

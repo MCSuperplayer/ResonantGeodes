@@ -1,7 +1,7 @@
 package com.mcsuperplayer.resonantgeodes.registry.menu;
 
 import com.mcsuperplayer.resonantgeodes.registry.Registry;
-import com.mcsuperplayer.resonantgeodes.registry.entity.DrillControllerBlockEntity;
+import com.mcsuperplayer.resonantgeodes.registry.entity.CrystalBurnerBlockEntity;
 
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
@@ -11,14 +11,15 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 
-public class DrillControllerMenu extends AbstractContainerMenu {
-	private final DrillControllerBlockEntity blockEntity;
+public class CrystalBurnerMenu extends AbstractContainerMenu {
+	private final CrystalBurnerBlockEntity blockEntity;
 
-	public DrillControllerMenu(int id, Inventory playerInv, BlockEntity blockEntity) {
-		super(Registry.DRILL_CONTROLLER_MENU.get(), id);
-		this.blockEntity = (DrillControllerBlockEntity) blockEntity;
+	public CrystalBurnerMenu(int id, Inventory playerInv, BlockEntity blockEntity) {
+		super(Registry.CRYSTAL_BURNER_MENU.get(), id);
+		this.blockEntity = (CrystalBurnerBlockEntity) blockEntity;
 	}
-	public DrillControllerMenu(int id, Inventory playerInv, FriendlyByteBuf buf) {
+
+	public CrystalBurnerMenu(int id, Inventory playerInv, FriendlyByteBuf buf) {
 		this(id, playerInv, playerInv.player.level().getBlockEntity(buf.readBlockPos()));
 	}
 
@@ -40,7 +41,7 @@ public class DrillControllerMenu extends AbstractContainerMenu {
 		return blockEntity.getClientInfoMsg();
 	}
 
-	public DrillControllerBlockEntity getBlockEntity() {
+	public CrystalBurnerBlockEntity getBlockEntity() {
 		return blockEntity;
 	}
 }

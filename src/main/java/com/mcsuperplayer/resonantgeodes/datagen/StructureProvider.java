@@ -38,20 +38,39 @@ public class StructureProvider implements DataProvider {
 		this.addStructure("geode_drill", this.createPattern(
 				List.of(
 						List.of("   ", "   ", "   ", " B ", "   ", "   ", "   "),
-						List.of("   ", "   ", " H ", " D ", " H ", "   ", "   "),
+						List.of("   ", "   ", " H ", " H ", " H ", "   ", "   "),
 						List.of("   ", " H ", "HHH", "HHH", "HHH", " H ", "   "),
 						List.of(" H ", "HHH", "TTT", "THT", "TTT", "HHH", " H "),
-						List.of(" H ", "HHH", "THT", "T0T", "THT", "HHH", " H "),
-						List.of(" H ", "HHH", "TTT", "TTT", "TTT", "HHH", " H "),
+						List.of(" D ", "HHH", "THT", "T0T", "THT", "HHH", " H "),
+						List.of(" H ", "HHH", "TTT", "THT", "TTT", "HHH", " H "),
 						List.of("   ", " H ", "HHH", "HHH", "HHH", " H ", "   "),
-						List.of("   ", "   ", " H ", " H ", " H ", "   ", "   "))
+						List.of("   ", "   ", " H ", " I ", " H ", "   ", "   "))
 				),new MappingBuilder()
-					.geodeCore()
-					.drillController()
-					.crystalBlockHigh()
+					.geodeCore('0')
+					.drillController('D')
+					.itemOutput('I')
+					.crystalBlockHigh('H')
 					.crystalCluster()
-					.tintedGlass()
+					.tintedGlass('T')
 					.build());
+		
+		this.addStructure("crystal_burner", this.createPattern(
+				List.of(
+						List.of("     ", "     ", "  B  ", "     ", "     "),
+						List.of("     ", "     ", "  H  ", "     ", "     "),
+						List.of("  W  ", "  H  ", "NHHHS", "  H  ", "  E  "),
+						List.of("     ", "     ", "  H  ", "     ", "     "),
+						List.of("     ", "     ", "  H  ", "     ", "     "),
+						List.of("     ", "     ", "  0  ", "     ", "     "),
+						List.of(" HIH ", "HLLLH", "HLHLH", "HLLLH", " HHH "),
+						List.of("     ", " HHH ", " HHH ", " HHH ", "     "))
+					),new MappingBuilder()
+						.crystalBlockHigh('H')
+						.crystalCluster()
+						.lava('L')
+						.crystalBurner('0')
+						.itemInput('I')
+						.build());
 	}
 
 	private List<List<String>> createPattern(List<List<String>> layers) {
@@ -139,12 +158,11 @@ public class StructureProvider implements DataProvider {
 			return this.element(c, json);
 		}
 
-		@SuppressWarnings("unused")
-		private MappingBuilder blockDisplay(char c, Supplier<? extends Block> b, Supplier<? extends Block> display) {
+		private MappingBuilder blockDisplayState(char c, Supplier<? extends Block> b, String displayState) {
 			JsonObject json = new JsonObject();
 			json.addProperty("type", "modonomicon:block");
 			json.addProperty("block", ForgeRegistries.BLOCKS.getKey(b.get()).toString());
-			json.addProperty("display", ForgeRegistries.BLOCKS.getKey(display.get()).toString());
+			json.addProperty("display", ForgeRegistries.BLOCKS.getKey(b.get()).toString() + '[' + displayState + ']');
 			return this.element(c, json);
 		}
 
@@ -164,24 +182,53 @@ public class StructureProvider implements DataProvider {
 			return this.element(c, json);
 		}
 
-		private MappingBuilder drillController() {
-			return this.block('D', Registry.DRILL_MACHINE_BLOCK);
+		@SuppressWarnings("unused")
+		private MappingBuilder state(char c, Supplier<? extends Block> b, String state) {
+			JsonObject json = new JsonObject();
+			json.addProperty("type", "modonomicon:blockstateproperty");
+			json.addProperty("block", ForgeRegistries.BLOCKS.getKey(b.get()).toString() + '[' + state + ']');
+			return this.element(c, json);
 		}
 
-		private MappingBuilder crystalBlockHigh() {
-			return this.block('H', Registry.GEODE_CRYSTAL_BLOCK_HIGH);
+		private MappingBuilder drillController(char c) {
+			return this.block(c, Registry.DRILL_MACHINE_BLOCK);
+		}
+
+		private MappingBuilder crystalBlockHigh(char c) {
+			return this.block(c, Registry.GEODE_CRYSTAL_BLOCK_HIGH);
 		}
 
 		private MappingBuilder crystalCluster() {
-			return this.block('B', Registry.CRYSTAL_CLUSTER);
+			return this
+					.block('B', Registry.CRYSTAL_CLUSTER)
+					.blockDisplayState('N', Registry.CRYSTAL_CLUSTER, "facing=north")
+					.blockDisplayState('E', Registry.CRYSTAL_CLUSTER, "facing=east")
+					.blockDisplayState('S', Registry.CRYSTAL_CLUSTER, "facing=south")
+					.blockDisplayState('W', Registry.CRYSTAL_CLUSTER, "facing=west");
 		}
 
-		private MappingBuilder tintedGlass() {
-			return this.block('T', () -> Blocks.TINTED_GLASS);
+		private MappingBuilder tintedGlass(char c) {
+			return this.block(c, () -> Blocks.TINTED_GLASS);
 		}
 
-		private MappingBuilder geodeCore() {
-			return this.block('0', Registry.GEODE_CORE);
+		private MappingBuilder geodeCore(char c) {
+			return this.block(c, Registry.GEODE_CORE);
+		}
+
+		private MappingBuilder itemInput(char c) {
+			return this.block(c, Registry.MACHINE_ITEM_INPUT);
+		}
+
+		private MappingBuilder itemOutput(char c) {
+			return this.block(c, Registry.MACHINE_ITEM_OUTPUT);
+		}
+
+		private MappingBuilder lava(char c) {
+			return this.block(c, () -> Blocks.LAVA);
+		}
+
+		private MappingBuilder crystalBurner(char c) {
+			return this.block(c, Registry.CRYSTAL_BURNER_MACHINE_BLOCK);
 		}
 	}
 }

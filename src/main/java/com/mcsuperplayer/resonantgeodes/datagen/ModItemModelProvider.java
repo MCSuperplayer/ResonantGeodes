@@ -19,6 +19,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 		withExistingParent(Registry.GEODE_CRYSTAL_BLOCK_HIGH.get().asItem().toString(), modLoc("block/pure_crystal_block"));
 		withExistingParent(Registry.GEODE_CRYSTAL_BLOCK_LOW.get().asItem().toString(), modLoc("block/impure_crystal_block"));
 		withExistingParent(Registry.DRILL_MACHINE_BLOCK.get().asItem().toString(), modLoc("block/drill_machine_block"));
+		withExistingParent(Registry.MACHINE_ITEM_OUTPUT.get().asItem().toString(), modLoc("block/machine_item_output"));
+		//withExistingParent(Registry.CRYSTAL_BURNER_MACHINE_BLOCK.get().asItem().toString(), modLoc("block/resonance_diffuser"));
+		withExistingParent(Registry.MACHINE_ITEM_INPUT.get().asItem().toString(), modLoc("block/machine_item_input"));
 		basicItem(Registry.RESONATOR_ITEM.get());
 		basicItem(Registry.BOOK.get());
 		basicItem(Registry.CRYSTAL_CLUSTER_ITEM.get());

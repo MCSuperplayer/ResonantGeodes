@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "resonantgeodes:block/machine_item_output"
+    }
+  }
+}

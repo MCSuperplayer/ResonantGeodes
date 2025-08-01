@@ -27,5 +27,14 @@ public class ENUSProvider extends AbstractModonomiconLanguageProvider {
 		this.addBlock(Registry.CRYSTAL_BUD_SMALL, "Small Crystal Bud");
 		this.addItem(Registry.CRYSTAL_FRAGMENT, "Crystal Fragment");
 		this.addBlock(Registry.DRILL_MACHINE_BLOCK, "Geode Drill Controller");
+		this.addBlock(Registry.MACHINE_ITEM_OUTPUT, "Machine Item Output ");
+		this.addBlock(Registry.CRYSTAL_BURNER_MACHINE_BLOCK, "Crystalline Resonance Diffuser");
+		this.addBlock(Registry.MACHINE_ITEM_INPUT, "Machine Item Input");
+		this.add("container.resonantgeodes.drill_controller", "Geode Drill Controller");
+		this.add("container.resonantgeodes.resonance_diffuser", "Resonance Diffuser");
+		this.add("text.resonantgeodes.structure_invalid", "Structure Invalid!");
+		this.add("text.resonantgeodes.structure_valid", "Structure Complete!");
+		this.add("text.resonantgeodes.low_resonance", "Not Enough Resonance!");
+		this.add("text.resonantgeodes.high_resonance", "Too Much Resonance");
 	}
 }

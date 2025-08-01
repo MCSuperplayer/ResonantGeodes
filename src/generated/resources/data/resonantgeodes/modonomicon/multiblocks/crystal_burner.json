@@ -3,15 +3,11 @@
   "mapping": {
     "0": {
       "type": "modonomicon:block",
-      "block": "resonantgeodes:geode_core"
+      "block": "resonantgeodes:diffusion_energizer"
     },
     "B": {
       "type": "modonomicon:block",
       "block": "resonantgeodes:crystal_cluster"
-    },
-    "D": {
-      "type": "modonomicon:block",
-      "block": "resonantgeodes:geode_drill_block"
     },
     "E": {
       "type": "modonomicon:block",
@@ -24,7 +20,11 @@
     },
     "I": {
       "type": "modonomicon:block",
-      "block": "resonantgeodes:machine_item_output"
+      "block": "resonantgeodes:machine_item_input"
+    },
+    "L": {
+      "type": "modonomicon:block",
+      "block": "minecraft:lava"
     },
     "N": {
       "type": "modonomicon:block",
@@ -36,10 +36,6 @@
       "block": "resonantgeodes:crystal_cluster",
       "display": "resonantgeodes:crystal_cluster[facing=south]"
     },
-    "T": {
-      "type": "modonomicon:block",
-      "block": "minecraft:tinted_glass"
-    },
     "W": {
       "type": "modonomicon:block",
       "block": "resonantgeodes:crystal_cluster",
@@ -48,76 +44,60 @@
   },
   "pattern": [
     [
-      "___",
-      "___",
-      "___",
-      "_B_",
-      "___",
-      "___",
-      "___"
+      "_____",
+      "_____",
+      "__B__",
+      "_____",
+      "_____"
     ],
     [
-      "___",
-      "___",
-      "_H_",
-      "_H_",
-      "_H_",
-      "___",
-      "___"
+      "_____",
+      "_____",
+      "__H__",
+      "_____",
+      "_____"
     ],
     [
-      "___",
-      "_H_",
-      "HHH",
-      "HHH",
-      "HHH",
-      "_H_",
-      "___"
+      "__W__",
+      "__H__",
+      "NHHHS",
+      "__H__",
+      "__E__"
     ],
     [
-      "_H_",
-      "HHH",
-      "TTT",
-      "THT",
-      "TTT",
-      "HHH",
-      "_H_"
+      "_____",
+      "_____",
+      "__H__",
+      "_____",
+      "_____"
     ],
     [
-      "_D_",
-      "HHH",
-      "THT",
-      "T0T",
-      "THT",
-      "HHH",
-      "_H_"
+      "_____",
+      "_____",
+      "__H__",
+      "_____",
+      "_____"
     ],
     [
-      "_H_",
-      "HHH",
-      "TTT",
-      "THT",
-      "TTT",
-      "HHH",
-      "_H_"
+      "_____",
+      "_____",
+      "__0__",
+      "_____",
+      "_____"
     ],
     [
-      "___",
-      "_H_",
-      "HHH",
-      "HHH",
-      "HHH",
-      "_H_",
-      "___"
+      "_HIH_",
+      "HLLLH",
+      "HLHLH",
+      "HLLLH",
+      "_HHH_"
     ],
     [
-      "___",
-      "___",
-      "_H_",
-      "_I_",
-      "_H_",
-      "___",
-      "___"
+      "_____",
+      "_HHH_",
+      "_HHH_",
+      "_HHH_",
+      "_____"
     ]
   ]
 }

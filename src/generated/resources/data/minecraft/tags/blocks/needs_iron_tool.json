@@ -7,6 +7,8 @@
     "resonantgeodes:crystal_bud_large",
     "resonantgeodes:crystal_bud_medium",
     "resonantgeodes:crystal_bud_small",
-    "resonantgeodes:geode_drill_block"
+    "resonantgeodes:geode_drill_block",
+    "resonantgeodes:diffusion_energizer",
+    "resonantgeodes:machine_item_input"
   ]
 }

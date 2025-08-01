@@ -21,8 +21,6 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
 
 	@Override
 	protected void generate() {
-		add(Registry.GEODE_CORE.get(), createSilkTouchOnlyTable(Registry.GEODE_CORE.get()));
-
 		add(Registry.GEODE_CRYSTAL_BLOCK_HIGH.get(),
 				block -> createSilkTouchDispatchTable(block,
 						LootItem
@@ -43,6 +41,9 @@ public class ModBlockLootProvider extends BlockLootSubProvider {
 				block -> createSilkTouchOnlyTable(Registry.CRYSTAL_BUD_MEDIUM_ITEM.get()));
 		add(Registry.CRYSTAL_BUD_SMALL.get(), block -> createSilkTouchOnlyTable(Registry.CRYSTAL_BUD_SMALL_ITEM.get()));
 		dropSelf(Registry.DRILL_MACHINE_BLOCK.get());
+		dropSelf(Registry.MACHINE_ITEM_OUTPUT.get());
+		dropSelf(Registry.CRYSTAL_BURNER_MACHINE_BLOCK.get());
+		dropSelf(Registry.MACHINE_ITEM_INPUT.get());
 	}
 
 	@Override
