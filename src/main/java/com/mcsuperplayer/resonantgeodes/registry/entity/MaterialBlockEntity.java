@@ -21,6 +21,7 @@ public class MaterialBlockEntity extends BlockEntity {
 
 	public void setMaterial(String material) {
 		this.material = material;
+		setChanged();
 	}
 
 	@Override

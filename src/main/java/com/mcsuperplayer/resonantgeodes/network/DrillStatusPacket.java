@@ -34,7 +34,6 @@ public class DrillStatusPacket {
 		buf.writeComponent(info);
 	}
 
-	@SuppressWarnings("resource")
 	public void handle(Supplier<NetworkEvent.Context> ctx) {
 		ctx.get().enqueueWork(() -> {
 			ClientLevel level = Minecraft.getInstance().level;

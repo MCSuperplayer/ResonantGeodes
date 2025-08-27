@@ -150,7 +150,7 @@ public class CrystalBurnerBlockEntity extends BlockEntity implements MenuProvide
 		}
 
 		if (structureValid) {
-			freeResonance = (CrystalResonanceStorage.get((ServerLevel) level).get() < Config.maxResonance);
+			freeResonance = (CrystalResonanceStorage.get(level.getServer().overworld()).get() < Config.maxResonance);
 			if (freeResonance) {
 				if (this.runTimer == 0) {
 					ItemInputBlockEntity be = (ItemInputBlockEntity) level

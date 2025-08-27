@@ -19,6 +19,7 @@ import com.mcsuperplayer.resonantgeodes.registry.item.MaterializedBlockItem;
 import com.mcsuperplayer.resonantgeodes.registry.item.MaterializedItem;
 import com.mcsuperplayer.resonantgeodes.registry.menu.CrystalBurnerMenu;
 import com.mcsuperplayer.resonantgeodes.registry.menu.DrillControllerMenu;
+import com.mcsuperplayer.resonantgeodes.world.GeodeFeature;
 import com.mojang.serialization.Codec;
 
 import net.minecraft.core.BlockPos;
@@ -34,6 +35,8 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour.Properties;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.feature.configurations.NoneFeatureConfiguration;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.common.loot.IGlobalLootModifier;
@@ -53,6 +56,9 @@ public class Registry {
 		BLOCK_ENTITIES.register(modEventBus);
 		LOOT_MODIFIERS.register(modEventBus);
 		MENUS.register(modEventBus);
+		FEATURES.register(modEventBus);
+		// CONFIGURED_FEATURES.register(modEventBus);
+		// PLACED_FEATURES.register(modEventBus);
 		ResonantGeodesPackets.register();
 	}
 	
@@ -71,6 +77,10 @@ public class Registry {
 	public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister
 			.create(ForgeRegistries.MENU_TYPES, ResonantGeodes.MODID);
 
+	public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister
+			.create(ForgeRegistries.FEATURES, ResonantGeodes.MODID);
+
+
 	// ITEMS
 	public static final RegistryObject<GuideBookItem> BOOK = HIDDEN_ITEMS
 			.register("book_of_geodes", () -> new GuideBookItem(new Item.Properties().stacksTo(1)));
@@ -88,6 +98,7 @@ public class Registry {
 							.mapColor(MapColor.COLOR_CYAN)
 							.strength(50.0f)
 							.requiresCorrectToolForDrops()
+							.randomTicks()
 							.lightLevel(state -> {return 8;})));
 
 	public static final RegistryObject<Block> GEODE_CRYSTAL_BLOCK_HIGH = BLOCKS
@@ -229,4 +240,9 @@ public class Registry {
 				return new CrystalBurnerMenu(id, inv, be);
 			}));
 
+
+	// FEATURES
+	public static final RegistryObject<Feature<NoneFeatureConfiguration>> GEODE_FEATURE = FEATURES
+	 .register("geode", () -> new GeodeFeature(NoneFeatureConfiguration.CODEC));
+	 
 }

@@ -28,6 +28,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 		basicItem(Registry.CRYSTAL_BUD_LARGE_ITEM.get());
 		basicItem(Registry.CRYSTAL_BUD_MEDIUM_ITEM.get());
 		basicItem(Registry.CRYSTAL_BUD_SMALL_ITEM.get());
+		basicItem(Registry.CRYSTAL_FRAGMENT.get());
 	}
 
 }

@@ -4,7 +4,6 @@ import org.jetbrains.annotations.NotNull;
 
 import com.google.common.base.Supplier;
 import com.google.common.base.Suppliers;
-import com.mcsuperplayer.resonantgeodes.ResonantGeodes;
 import com.mcsuperplayer.resonantgeodes.registry.entity.MaterialBlockEntity;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
@@ -34,7 +33,6 @@ public class MaterialLootModifier extends LootModifier {
 
 	@Override
 	protected @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
-		ResonantGeodes.debug("doapply run start");
 		BlockEntity be = context.getParamOrNull(LootContextParams.BLOCK_ENTITY);
 		if (be == null)
 			return generatedLoot;
@@ -48,7 +46,6 @@ public class MaterialLootModifier extends LootModifier {
 			CompoundTag stackTag = stack.getOrCreateTag();
 			stackTag.putString("geode_material", material);
 		});
-		ResonantGeodes.debug("doapply run end");
 		return generatedLoot;
 	}
 

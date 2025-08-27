@@ -136,7 +136,7 @@ public class DrillControllerBlockEntity extends BlockEntity implements MenuProvi
 		}
 
 		if (structureValid) {
-			enoughResonance = true;//(CrystalResonanceStorage.get((ServerLevel) level).get() >= Config.drillResonanceCost);
+			enoughResonance = (CrystalResonanceStorage.get(level.getServer().overworld()).get() >= Config.drillResonanceCost);
 			if (enoughResonance) {
 				this.runTimer++;
 				if (this.runTimer >= Config.drillWorkTime) {

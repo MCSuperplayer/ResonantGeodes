@@ -1,7 +1,10 @@
 package com.mcsuperplayer.resonantgeodes.datagen;
 
+import java.util.concurrent.CompletableFuture;
+
 import com.mcsuperplayer.resonantgeodes.ResonantGeodes;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -18,6 +21,7 @@ public class DataGen {
 		DataGenerator gen = event.getGenerator();
 		PackOutput output = gen.getPackOutput();
 		ExistingFileHelper helper = event.getExistingFileHelper();
+		CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 		
 		gen.addProvider(event.includeClient(), new ModBlockStateProvider(output, helper));
 		gen.addProvider(event.includeClient(), new ModItemModelProvider(output, helper));
@@ -27,5 +31,6 @@ public class DataGen {
 		var enUSProvider = new ENUSProvider(output);
 		gen.addProvider(event.includeClient(), new ResonantGeodesBookProvider(output, ResonantGeodes.MODID, enUSProvider));
 		gen.addProvider(event.includeClient(), enUSProvider);
+		gen.addProvider(event.includeServer(), new WorldGenProvider(output, lookupProvider));
 	}
 }
